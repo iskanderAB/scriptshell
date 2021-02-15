@@ -14,6 +14,6 @@ then
     fi    
      
 else 
-    echo "not good"
+    echo "pas de previlege !"
 fi     
 
