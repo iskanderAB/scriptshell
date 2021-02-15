@@ -1,12 +1,10 @@
-#!/bin/bash 
-if [ $# -eq 0 ] ; then
-     echo "syntax : $0 <nom_utilisateur> "
-else 
-    w=`who |grep $1`
-    if [ -n "$w" ] ; then 
-	echo "$1 est connecté"
-     else 
- 	echo "$1 n'est pas connecté" 
-     fi 
-fi
-	 
+#!/bin/bash
+userids=$(cat /etc/passwd |grep '/home' |cut -d: -f3)
+for user in $userids
+do
+          
+	if [ "$user" -ge 1000 ] ; then
+			echo " my user id => $user"  
+			cat  /etc/passwd |grep -w "$user" |cut -d: -f1
+        fi 
+done
